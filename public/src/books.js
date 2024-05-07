@@ -1,8 +1,9 @@
-function findAuthorById(authors, id) {
-  const result = authors.find((author)=> author.id === id);
-  return result
+function findAuthorByIdHelperFunction(authors, id) {
+  return authors.find(author => author.id === id);// find the author by ID
 }
-
+  function findAuthorById(authors, id){//use the helper function to compete the function
+    return findAuthorByIdHelperFunction(authors, id);
+  }
 function findBookById(books, id) {
   const result = books.find((book) => book.id === id);// look through the books array and compare to the id provided
   return result
