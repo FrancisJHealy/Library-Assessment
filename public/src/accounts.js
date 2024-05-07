@@ -8,8 +8,8 @@ function sortAccountsByLastName(accounts) {
           return result;
 }
 function getTotalNumberOfBorrows(account, books) {
-  let totalBorrows = 0;
-  books.forEach(book => {
+  // Use reduce to iterate over each book and count the number of borrows by the account
+  return books.reduce((totalBorrows, book) => {
     // Check if the account's ID appears in the book's borrows array
     const borrows = book.borrows;
     borrows.forEach(borrow => {
@@ -18,7 +18,10 @@ function getTotalNumberOfBorrows(account, books) {
         totalBorrows++;
       }
     });
-  });
+    return totalBorrows;
+  }, 0); // Initialize accumulator with 0
+}
+
   
   // Return the total number of borrows
   return totalBorrows;
